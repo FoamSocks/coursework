@@ -1,0 +1,13 @@
+*.npy
+*.npz
+*.csv
+*.ipynb_checkpoints
+*.txt
+*.parq
+models/runs/*_runs
+models/runs
+*.joblib
+best
+*.keras
+__pycache__
+tuner

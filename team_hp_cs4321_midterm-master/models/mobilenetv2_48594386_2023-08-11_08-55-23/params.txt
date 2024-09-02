@@ -1,0 +1,16 @@
+model_dir:../models/mobilenetv2_48594386_2023-08-11_08-55-23/
+test_dir:/data/cs4321/HW1/test
+train_dir:/data/cs4321/HW1/train
+val_dir:/data/cs4321/HW1/validation
+model_type:mobilenetv2
+num_classes:8
+num_epochs:40
+batch_size:8
+fixed:False
+unfreeze:12
+optimizer:sgd
+callback_list:checkpoint, csv_log
+base_learning_rate:0.001
+nodes:1
+gpus:1
+world_size:1

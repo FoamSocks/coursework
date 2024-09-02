@@ -1,0 +1,680 @@
+Starting on 11-30 at 19:48:10
+
+Question q2
+===========
+
+agents: [0, 1]
+depth 2
+1st max call
+enter max, depth= 2
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 2
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 2
+      Pacman terminal: Win= True , Lose= False , Depth= 2 , utility= 3.0
+    last ghost, action= Center
+enter max, depth= 2
+      Pacman terminal: Win= True , Lose= False , Depth= 2 , utility= 12.0
+    last ghost, action= Right
+enter max, depth= 2
+      Pacman terminal: Win= True , Lose= False , Depth= 2 , utility= 8.0
+Last Ghost move determined: Left for 3.0 
+
+pacman action= Center 
+
+enter min, depth= 2
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 2
+      Pacman terminal: Win= True , Lose= False , Depth= 2 , utility= 5.0
+    last ghost, action= Center
+enter max, depth= 2
+      Pacman terminal: Win= True , Lose= False , Depth= 2 , utility= 4.0
+    last ghost, action= Right
+enter max, depth= 2
+      Pacman terminal: Win= True , Lose= False , Depth= 2 , utility= 6.0
+Last Ghost move determined: Center for 4.0 
+
+pacman action= Right 
+
+enter min, depth= 2
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 2
+      Pacman terminal: Win= True , Lose= False , Depth= 2 , utility= 14.0
+    last ghost, action= Center
+enter max, depth= 2
+      Pacman terminal: Win= True , Lose= False , Depth= 2 , utility= 1.0
+    last ghost, action= Right
+enter max, depth= 2
+      Pacman terminal: Win= True , Lose= False , Depth= 2 , utility= 11.0
+Last Ghost move determined: Center for 1.0 
+
+Pacman move determined: Center for 4.0 
+
+First Pacman move determined: Center for 4.0 
+
+Total pacman moves= 1 and ghost moves= 3
+*** PASS: test_cases/q2/0-lecture-6-tree.test
+agents: [0, 1]
+depth 3
+1st max call
+enter max, depth= 3
+Max else: cycle Pacman actions
+
+pacman action= pacLeft 
+
+enter min, depth= 3
+  Min elif: cycle last ghost actions
+    last ghost, action= gLeft
+enter max, depth= 3
+      Pacman terminal: Win= True , Lose= False , Depth= 3 , utility= 4.0
+    last ghost, action= gRight
+enter max, depth= 3
+      Pacman terminal: Win= False , Lose= True , Depth= 3 , utility= 3.0
+Last Ghost move determined: gRight for 3.0 
+
+pacman action= pacRight 
+
+enter min, depth= 3
+  Min elif: cycle last ghost actions
+    last ghost, action= gLeft
+enter max, depth= 3
+      Pacman terminal: Win= True , Lose= False , Depth= 3 , utility= 2.0
+    last ghost, action= gRight
+enter max, depth= 3
+Max else: cycle Pacman actions
+
+pacman action= pacLeft 
+
+enter min, depth= 3
+      Ghost  1 terminal: Win= False , Lose= True , Depth= 3 , utility= 1000.0
+Pacman move determined: pacLeft for 1000.0 
+
+Last Ghost move determined: gLeft for 2.0 
+
+Pacman move determined: pacLeft for 3.0 
+
+First Pacman move determined: pacLeft for 3.0 
+
+Total pacman moves= 2 and ghost moves= 2
+*** PASS: test_cases/q2/0-small-tree.test
+agents: [0, 1]
+depth 3
+1st max call
+enter max, depth= 3
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 3
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 3
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 3
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 3 , utility= -3.0
+pacman action= Right 
+
+enter min, depth= 3
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 3 , utility= -9.0
+Pacman move determined: Left for -3.0 
+
+    last ghost, action= Right
+enter max, depth= 2
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 2
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 2 , utility= 10.0
+pacman action= Right 
+
+enter min, depth= 2
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 2 , utility= 6.0
+Pacman move determined: Left for 10.0 
+
+Last Ghost move determined: Left for -3.0 
+
+pacman action= Right 
+
+enter min, depth= 1
+  Min elif: cycle last ghost actions
+    last ghost, action= Down
+enter max, depth= 1
+Max else: cycle Pacman actions
+
+pacman action= Down 
+
+enter min, depth= 1
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 1 , utility= -3.01
+Pacman move determined: Down for -3.01 
+
+Last Ghost move determined: Down for -3.01 
+
+Pacman move determined: Left for -3.0 
+
+First Pacman move determined: Left for -3.0 
+
+Total pacman moves= 4 and ghost moves= 2
+*** PASS: test_cases/q2/1-1-minmax.test
+agents: [0, 1]
+depth 3
+1st max call
+enter max, depth= 3
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 3
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 3
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 3
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 3 , utility= -3.0
+pacman action= Right 
+
+enter min, depth= 3
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 3 , utility= -9.0
+Pacman move determined: Left for -3.0 
+
+    last ghost, action= Right
+enter max, depth= 2
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 2
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 2 , utility= 10.0
+pacman action= Right 
+
+enter min, depth= 2
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 2 , utility= 6.0
+Pacman move determined: Left for 10.0 
+
+Last Ghost move determined: Left for -3.0 
+
+pacman action= Right 
+
+enter min, depth= 1
+  Min elif: cycle last ghost actions
+    last ghost, action= Down
+enter max, depth= 1
+Max else: cycle Pacman actions
+
+pacman action= Down 
+
+enter min, depth= 1
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 1 , utility= -2.99
+Pacman move determined: Down for -2.99 
+
+Last Ghost move determined: Down for -2.99 
+
+Pacman move determined: Right for -2.99 
+
+First Pacman move determined: Right for -2.99 
+
+Total pacman moves= 4 and ghost moves= 2
+*** PASS: test_cases/q2/1-2-minmax.test
+agents: [0, 1]
+depth 3
+1st max call
+enter max, depth= 3
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 3
+  Min elif: cycle last ghost actions
+    last ghost, action= Down
+enter max, depth= 3
+Max else: cycle Pacman actions
+
+pacman action= Down 
+
+enter min, depth= 3
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 3 , utility= 4.01
+Pacman move determined: Down for 4.01 
+
+Last Ghost move determined: Down for 4.01 
+
+pacman action= Right 
+
+enter min, depth= 2
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 2
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 2
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 2 , utility= 4.0
+pacman action= Right 
+
+enter min, depth= 2
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 2 , utility= -7.0
+Pacman move determined: Left for 4.0 
+
+    last ghost, action= Right
+enter max, depth= 1
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 1
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 1 , utility= 0.0
+pacman action= Right 
+
+enter min, depth= 1
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 1 , utility= 5.0
+Pacman move determined: Right for 5.0 
+
+Last Ghost move determined: Left for 4.0 
+
+Pacman move determined: Left for 4.01 
+
+First Pacman move determined: Left for 4.01 
+
+Total pacman moves= 4 and ghost moves= 2
+*** PASS: test_cases/q2/1-3-minmax.test
+agents: [0, 1]
+depth 3
+1st max call
+enter max, depth= 3
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 3
+  Min elif: cycle last ghost actions
+    last ghost, action= Down
+enter max, depth= 3
+Max else: cycle Pacman actions
+
+pacman action= Down 
+
+enter min, depth= 3
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 3 , utility= 3.99
+Pacman move determined: Down for 3.99 
+
+Last Ghost move determined: Down for 3.99 
+
+pacman action= Right 
+
+enter min, depth= 2
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 2
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 2
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 2 , utility= 4.0
+pacman action= Right 
+
+enter min, depth= 2
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 2 , utility= -7.0
+Pacman move determined: Left for 4.0 
+
+    last ghost, action= Right
+enter max, depth= 1
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 1
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 1 , utility= 0.0
+pacman action= Right 
+
+enter min, depth= 1
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 1 , utility= 5.0
+Pacman move determined: Right for 5.0 
+
+Last Ghost move determined: Left for 4.0 
+
+Pacman move determined: Right for 4.0 
+
+First Pacman move determined: Right for 4.0 
+
+Total pacman moves= 4 and ghost moves= 2
+*** PASS: test_cases/q2/1-4-minmax.test
+agents: [0, 1]
+depth 4
+1st max call
+enter max, depth= 4
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 4
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 4
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 4
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 4
+      Pacman terminal: Win= True , Lose= False , Depth= 4 , utility= -3.0
+    last ghost, action= Right
+enter max, depth= 4
+      Pacman terminal: Win= True , Lose= False , Depth= 4 , utility= 13.0
+Last Ghost move determined: Left for -3.0 
+
+pacman action= Right 
+
+enter min, depth= 4
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 4
+      Pacman terminal: Win= True , Lose= False , Depth= 4 , utility= 5.0
+    last ghost, action= Right
+enter max, depth= 4
+      Pacman terminal: Win= True , Lose= False , Depth= 4 , utility= 9.0
+Last Ghost move determined: Left for 5.0 
+
+Pacman move determined: Right for 5.0 
+
+    last ghost, action= Right
+enter max, depth= 3
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 3
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 3
+      Pacman terminal: Win= True , Lose= False , Depth= 3 , utility= 10.0
+    last ghost, action= Right
+enter max, depth= 3
+      Pacman terminal: Win= True , Lose= False , Depth= 3 , utility= 3.0
+Last Ghost move determined: Right for 3.0 
+
+pacman action= Right 
+
+enter min, depth= 3
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 3
+      Pacman terminal: Win= True , Lose= False , Depth= 3 , utility= -6.0
+    last ghost, action= Right
+enter max, depth= 3
+      Pacman terminal: Win= True , Lose= False , Depth= 3 , utility= 8.0
+Last Ghost move determined: Left for -6.0 
+
+Pacman move determined: Left for 3.0 
+
+Last Ghost move determined: Right for 3.0 
+
+pacman action= Right 
+
+enter min, depth= 2
+  Min elif: cycle last ghost actions
+    last ghost, action= Down
+enter max, depth= 2
+Max else: cycle Pacman actions
+
+pacman action= Down 
+
+enter min, depth= 2
+  Min elif: cycle last ghost actions
+    last ghost, action= Down
+enter max, depth= 2
+      Pacman terminal: Win= True , Lose= False , Depth= 2 , utility= 3.01
+Last Ghost move determined: Down for 3.01 
+
+Pacman move determined: Down for 3.01 
+
+Last Ghost move determined: Down for 3.01 
+
+Pacman move determined: Right for 3.01 
+
+First Pacman move determined: Right for 3.01 
+
+Total pacman moves= 4 and ghost moves= 7
+*** PASS: test_cases/q2/1-5-minmax.test
+agents: [0, 1]
+depth 4
+1st max call
+enter max, depth= 4
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 4
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 4
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 4
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 4
+      Pacman terminal: Win= True , Lose= False , Depth= 4 , utility= -3.0
+    last ghost, action= Right
+enter max, depth= 4
+      Pacman terminal: Win= True , Lose= False , Depth= 4 , utility= 13.0
+Last Ghost move determined: Left for -3.0 
+
+pacman action= Right 
+
+enter min, depth= 4
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 4
+      Pacman terminal: Win= True , Lose= False , Depth= 4 , utility= 5.0
+    last ghost, action= Right
+enter max, depth= 4
+      Pacman terminal: Win= True , Lose= False , Depth= 4 , utility= 9.0
+Last Ghost move determined: Left for 5.0 
+
+Pacman move determined: Right for 5.0 
+
+    last ghost, action= Right
+enter max, depth= 3
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 3
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 3
+      Pacman terminal: Win= True , Lose= False , Depth= 3 , utility= 10.0
+    last ghost, action= Right
+enter max, depth= 3
+      Pacman terminal: Win= True , Lose= False , Depth= 3 , utility= 3.0
+Last Ghost move determined: Right for 3.0 
+
+pacman action= Right 
+
+enter min, depth= 3
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 3
+      Pacman terminal: Win= True , Lose= False , Depth= 3 , utility= -6.0
+    last ghost, action= Right
+enter max, depth= 3
+      Pacman terminal: Win= True , Lose= False , Depth= 3 , utility= 8.0
+Last Ghost move determined: Left for -6.0 
+
+Pacman move determined: Left for 3.0 
+
+Last Ghost move determined: Right for 3.0 
+
+pacman action= Right 
+
+enter min, depth= 2
+  Min elif: cycle last ghost actions
+    last ghost, action= Down
+enter max, depth= 2
+Max else: cycle Pacman actions
+
+pacman action= Down 
+
+enter min, depth= 2
+  Min elif: cycle last ghost actions
+    last ghost, action= Down
+enter max, depth= 2
+      Pacman terminal: Win= True , Lose= False , Depth= 2 , utility= 2.99
+Last Ghost move determined: Down for 2.99 
+
+Pacman move determined: Down for 2.99 
+
+Last Ghost move determined: Down for 2.99 
+
+Pacman move determined: Left for 3.0 
+
+First Pacman move determined: Left for 3.0 
+
+Total pacman moves= 4 and ghost moves= 7
+*** PASS: test_cases/q2/1-6-minmax.test
+agents: [0, 1, 2]
+depth 4
+1st max call
+enter max, depth= 4
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 4
+('ghost', 1)
+('newGhost', 2)
+enter min, depth= 4
+  Min elif: cycle last ghost actions
+    last ghost, action= Down
+enter max, depth= 4
+Max else: cycle Pacman actions
+
+pacman action= Down 
+
+enter min, depth= 4
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 4 , utility= -1.99
+Pacman move determined: Down for -1.99 
+
+Last Ghost move determined: Down for -1.99 
+
+pacman action= Right 
+
+enter min, depth= 3
+('ghost', 1)
+('newGhost', 2)
+enter min, depth= 3
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 3
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 3
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 3 , utility= -1.0
+pacman action= Right 
+
+enter min, depth= 3
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 3 , utility= -9.0
+Pacman move determined: Left for -1.0 
+
+    last ghost, action= Right
+enter max, depth= 2
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 2
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 2 , utility= 4.0
+pacman action= Right 
+
+enter min, depth= 2
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 2 , utility= 7.0
+Pacman move determined: Right for 7.0 
+
+Last Ghost move determined: Left for -1.0 
+
+('newGhost', 2)
+enter min, depth= 1
+  Min elif: cycle last ghost actions
+    last ghost, action= Left
+enter max, depth= 1
+Max else: cycle Pacman actions
+
+pacman action= Left 
+
+enter min, depth= 1
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 1 , utility= 2.0
+pacman action= Right 
+
+enter min, depth= 1
+      Ghost  1 terminal: Win= True , Lose= False , Depth= 1 , utility= 5.0
+Pacman move determined: Right for 5.0 
+
+    last ghost, action= Right
+enter max, depth= 0
+*** FAIL: Exception raised: getScore() called on non-terminal state or before maximum depth achieved.
+*** 
+*** Traceback (most recent call last):
+***   File "/Users/DWPeltier3/Library/CloudStorage/OneDrive-NavalPostgraduateSchool/1Documents/0 CS3310 AI/5 Final/gitlab/cs3310-project/multiagent/grading.py", line 75, in grade
+***     util.TimeoutFunction(getattr(gradingModule, q),300)(self) # Call the question's function
+***   File "/Users/DWPeltier3/Library/CloudStorage/OneDrive-NavalPostgraduateSchool/1Documents/0 CS3310 AI/5 Final/gitlab/cs3310-project/multiagent/util.py", line 612, in __call__
+***     result = self.function(*args, **keyArgs)
+***   File "autograder.py", line 295, in <lambda>
+***     return lambda grades: question.execute(grades)
+***   File "/Users/DWPeltier3/Library/CloudStorage/OneDrive-NavalPostgraduateSchool/1Documents/0 CS3310 AI/5 Final/gitlab/cs3310-project/multiagent/testClasses.py", line 57, in execute
+***     if not f(grades):
+***   File "autograder.py", line 290, in <lambda>
+***     return lambda grades: testCase.execute(grades, moduleDict, solutionDict)
+***   File "multiagentTestClasses.py", line 397, in execute
+***     action, generated = self.solveProblem(multiAgents)
+***   File "multiagentTestClasses.py", line 384, in solveProblem
+***     action = studentAgent.getAction(self.problem.startState)
+***   File "multiAgents.py", line 323, in getAction
+***     value, move = self.maxValue(gameState) #determines initial move (top of tree)
+***   File "multiAgents.py", line 229, in maxValue
+***     v2, a2 = self.minValue(successor, 1)
+***   File "multiAgents.py", line 281, in minValue
+***     v2, a2 = self.minValue(successor, newGhost)
+***   File "multiAgents.py", line 266, in minValue
+***     v2, a2 = self.maxValue(successor)
+***   File "multiAgents.py", line 219, in maxValue
+***     final=self.evaluationFunction(gameState)
+***   File "multiAgents.py", line 171, in scoreEvaluationFunction
+***     return currentGameState.getScore()
+***   File "multiagentTestClasses.py", line 56, in getScore
+***     raise Exception('getScore() called on non-terminal state or before maximum depth achieved.')
+*** Exception: getScore() called on non-terminal state or before maximum depth achieved.
+*** 
+
+### Question q2: 0/5 ###
+
+
+Finished at 19:48:10
+
+Provisional grades
+==================
+Question q2: 0/5
+------------------
+Total: 0/5
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+

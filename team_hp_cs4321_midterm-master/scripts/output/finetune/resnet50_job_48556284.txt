@@ -1,0 +1,347 @@
+/var/spool/slurm/job48556284/slurm_script: line 16: module: command not found
+/var/spool/slurm/job48556284/slurm_script: line 17: activate: No such file or directory
+Fri Aug 11 00:57:05 2023       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 530.30.02              Driver Version: 530.30.02    CUDA Version: 12.1     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                  Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf            Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA RTX A6000                On | 00000000:04:00.0 Off |                  Off |
+| 30%   30C    P8               31W / 300W|      1MiB / 49140MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   1  NVIDIA RTX A6000                On | 00000000:43:00.0 Off |                  Off |
+| 30%   33C    P8               37W / 300W|      1MiB / 49140MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   2  NVIDIA RTX A6000                On | 00000000:44:00.0 Off |                  Off |
+| 30%   33C    P8               31W / 300W|      1MiB / 49140MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   3  NVIDIA RTX A6000                On | 00000000:83:00.0 Off |                  Off |
+| 30%   26C    P8               20W / 300W|      1MiB / 49140MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+PyTorch Version: 2.0.1
+GPUs available: 4
+CPUs available: 128
+Using CUDA
+Namespace(model_dir='../models/resnet50_2023-08-11_00-57-06/', test_dir='/data/cs4321/HW1/test', train_dir='/data/cs4321/HW1/train', val_dir='/data/cs4321/HW1/validation', model_type='resnet50', regression=False, input_shape=(28, 28), continue_training=False, checkpoint_path=None, predict=False, num_classes=8, num_epochs=40, batch_size=32, fixed=False, unfreeze=2, optimizer='adam', callback_list='checkpoint, csv_log', activation_fn='relu', base_learning_rate=0.001, loss_type='categorical_crossentropy', eval_metrics='accuracy', mgpu_run=False, use_multiprocessing=True, workers=6, nodes=1, gpus=1, world_size=1)
+model_dir : ../models/resnet50_2023-08-11_00-57-06/
+test_dir : /data/cs4321/HW1/test
+train_dir : /data/cs4321/HW1/train
+val_dir : /data/cs4321/HW1/validation
+model_type : resnet50
+regression : False
+input_shape : (28, 28)
+continue_training : False
+checkpoint_path : None
+predict : False
+num_classes : 8
+num_epochs : 40
+batch_size : 32
+fixed : False
+unfreeze : 2
+optimizer : adam
+callback_list : checkpoint, csv_log
+activation_fn : relu
+base_learning_rate : 0.001
+loss_type : categorical_crossentropy
+eval_metrics : accuracy
+mgpu_run : False
+use_multiprocessing : True
+workers : 6
+nodes : 1
+gpus : 1
+world_size : 1
+Loaded 6400 images under train
+Loaded 1600 images under validation
+Loaded 800 images under test
+Created all datasets
+Classes: 
+['CoastalCliffs', 'CoastalRocky', 'CoastalWaterWay', 'Dunes', 'ManMadeStructures', 'SaltMarshes', 'SandyBeaches', 'TidalFlats']
+Rank: 0
+Creating fixed-feature model: resnet50
+========================================================================================================================
+Layer (type (var_name))                  Input Shape          Output Shape         Param #              Trainable
+========================================================================================================================
+ResNet (ResNet)                          [32, 3, 224, 224]    [32, 8]              --                   Partial
+├─Conv2d (conv1)                         [32, 3, 224, 224]    [32, 64, 112, 112]   (9,408)              False
+├─BatchNorm2d (bn1)                      [32, 64, 112, 112]   [32, 64, 112, 112]   (128)                False
+├─ReLU (relu)                            [32, 64, 112, 112]   [32, 64, 112, 112]   --                   --
+├─MaxPool2d (maxpool)                    [32, 64, 112, 112]   [32, 64, 56, 56]     --                   --
+├─Sequential (layer1)                    [32, 64, 56, 56]     [32, 256, 56, 56]    --                   False
+│    └─Bottleneck (0)                    [32, 64, 56, 56]     [32, 256, 56, 56]    --                   False
+│    │    └─Conv2d (conv1)               [32, 64, 56, 56]     [32, 64, 56, 56]     (4,096)              False
+│    │    └─BatchNorm2d (bn1)            [32, 64, 56, 56]     [32, 64, 56, 56]     (128)                False
+│    │    └─ReLU (relu)                  [32, 64, 56, 56]     [32, 64, 56, 56]     --                   --
+│    │    └─Conv2d (conv2)               [32, 64, 56, 56]     [32, 64, 56, 56]     (36,864)             False
+│    │    └─BatchNorm2d (bn2)            [32, 64, 56, 56]     [32, 64, 56, 56]     (128)                False
+│    │    └─ReLU (relu)                  [32, 64, 56, 56]     [32, 64, 56, 56]     --                   --
+│    │    └─Conv2d (conv3)               [32, 64, 56, 56]     [32, 256, 56, 56]    (16,384)             False
+│    │    └─BatchNorm2d (bn3)            [32, 256, 56, 56]    [32, 256, 56, 56]    (512)                False
+│    │    └─Sequential (downsample)      [32, 64, 56, 56]     [32, 256, 56, 56]    (16,896)             False
+│    │    └─ReLU (relu)                  [32, 256, 56, 56]    [32, 256, 56, 56]    --                   --
+│    └─Bottleneck (1)                    [32, 256, 56, 56]    [32, 256, 56, 56]    --                   False
+│    │    └─Conv2d (conv1)               [32, 256, 56, 56]    [32, 64, 56, 56]     (16,384)             False
+│    │    └─BatchNorm2d (bn1)            [32, 64, 56, 56]     [32, 64, 56, 56]     (128)                False
+│    │    └─ReLU (relu)                  [32, 64, 56, 56]     [32, 64, 56, 56]     --                   --
+│    │    └─Conv2d (conv2)               [32, 64, 56, 56]     [32, 64, 56, 56]     (36,864)             False
+│    │    └─BatchNorm2d (bn2)            [32, 64, 56, 56]     [32, 64, 56, 56]     (128)                False
+│    │    └─ReLU (relu)                  [32, 64, 56, 56]     [32, 64, 56, 56]     --                   --
+│    │    └─Conv2d (conv3)               [32, 64, 56, 56]     [32, 256, 56, 56]    (16,384)             False
+│    │    └─BatchNorm2d (bn3)            [32, 256, 56, 56]    [32, 256, 56, 56]    (512)                False
+│    │    └─ReLU (relu)                  [32, 256, 56, 56]    [32, 256, 56, 56]    --                   --
+│    └─Bottleneck (2)                    [32, 256, 56, 56]    [32, 256, 56, 56]    --                   False
+│    │    └─Conv2d (conv1)               [32, 256, 56, 56]    [32, 64, 56, 56]     (16,384)             False
+│    │    └─BatchNorm2d (bn1)            [32, 64, 56, 56]     [32, 64, 56, 56]     (128)                False
+│    │    └─ReLU (relu)                  [32, 64, 56, 56]     [32, 64, 56, 56]     --                   --
+│    │    └─Conv2d (conv2)               [32, 64, 56, 56]     [32, 64, 56, 56]     (36,864)             False
+│    │    └─BatchNorm2d (bn2)            [32, 64, 56, 56]     [32, 64, 56, 56]     (128)                False
+│    │    └─ReLU (relu)                  [32, 64, 56, 56]     [32, 64, 56, 56]     --                   --
+│    │    └─Conv2d (conv3)               [32, 64, 56, 56]     [32, 256, 56, 56]    (16,384)             False
+│    │    └─BatchNorm2d (bn3)            [32, 256, 56, 56]    [32, 256, 56, 56]    (512)                False
+│    │    └─ReLU (relu)                  [32, 256, 56, 56]    [32, 256, 56, 56]    --                   --
+├─Sequential (layer2)                    [32, 256, 56, 56]    [32, 512, 28, 28]    --                   False
+│    └─Bottleneck (0)                    [32, 256, 56, 56]    [32, 512, 28, 28]    --                   False
+│    │    └─Conv2d (conv1)               [32, 256, 56, 56]    [32, 128, 56, 56]    (32,768)             False
+│    │    └─BatchNorm2d (bn1)            [32, 128, 56, 56]    [32, 128, 56, 56]    (256)                False
+│    │    └─ReLU (relu)                  [32, 128, 56, 56]    [32, 128, 56, 56]    --                   --
+│    │    └─Conv2d (conv2)               [32, 128, 56, 56]    [32, 128, 28, 28]    (147,456)            False
+│    │    └─BatchNorm2d (bn2)            [32, 128, 28, 28]    [32, 128, 28, 28]    (256)                False
+│    │    └─ReLU (relu)                  [32, 128, 28, 28]    [32, 128, 28, 28]    --                   --
+│    │    └─Conv2d (conv3)               [32, 128, 28, 28]    [32, 512, 28, 28]    (65,536)             False
+│    │    └─BatchNorm2d (bn3)            [32, 512, 28, 28]    [32, 512, 28, 28]    (1,024)              False
+│    │    └─Sequential (downsample)      [32, 256, 56, 56]    [32, 512, 28, 28]    (132,096)            False
+│    │    └─ReLU (relu)                  [32, 512, 28, 28]    [32, 512, 28, 28]    --                   --
+│    └─Bottleneck (1)                    [32, 512, 28, 28]    [32, 512, 28, 28]    --                   False
+│    │    └─Conv2d (conv1)               [32, 512, 28, 28]    [32, 128, 28, 28]    (65,536)             False
+│    │    └─BatchNorm2d (bn1)            [32, 128, 28, 28]    [32, 128, 28, 28]    (256)                False
+│    │    └─ReLU (relu)                  [32, 128, 28, 28]    [32, 128, 28, 28]    --                   --
+│    │    └─Conv2d (conv2)               [32, 128, 28, 28]    [32, 128, 28, 28]    (147,456)            False
+│    │    └─BatchNorm2d (bn2)            [32, 128, 28, 28]    [32, 128, 28, 28]    (256)                False
+│    │    └─ReLU (relu)                  [32, 128, 28, 28]    [32, 128, 28, 28]    --                   --
+│    │    └─Conv2d (conv3)               [32, 128, 28, 28]    [32, 512, 28, 28]    (65,536)             False
+│    │    └─BatchNorm2d (bn3)            [32, 512, 28, 28]    [32, 512, 28, 28]    (1,024)              False
+│    │    └─ReLU (relu)                  [32, 512, 28, 28]    [32, 512, 28, 28]    --                   --
+│    └─Bottleneck (2)                    [32, 512, 28, 28]    [32, 512, 28, 28]    --                   False
+│    │    └─Conv2d (conv1)               [32, 512, 28, 28]    [32, 128, 28, 28]    (65,536)             False
+│    │    └─BatchNorm2d (bn1)            [32, 128, 28, 28]    [32, 128, 28, 28]    (256)                False
+│    │    └─ReLU (relu)                  [32, 128, 28, 28]    [32, 128, 28, 28]    --                   --
+│    │    └─Conv2d (conv2)               [32, 128, 28, 28]    [32, 128, 28, 28]    (147,456)            False
+│    │    └─BatchNorm2d (bn2)            [32, 128, 28, 28]    [32, 128, 28, 28]    (256)                False
+│    │    └─ReLU (relu)                  [32, 128, 28, 28]    [32, 128, 28, 28]    --                   --
+│    │    └─Conv2d (conv3)               [32, 128, 28, 28]    [32, 512, 28, 28]    (65,536)             False
+│    │    └─BatchNorm2d (bn3)            [32, 512, 28, 28]    [32, 512, 28, 28]    (1,024)              False
+│    │    └─ReLU (relu)                  [32, 512, 28, 28]    [32, 512, 28, 28]    --                   --
+│    └─Bottleneck (3)                    [32, 512, 28, 28]    [32, 512, 28, 28]    --                   False
+│    │    └─Conv2d (conv1)               [32, 512, 28, 28]    [32, 128, 28, 28]    (65,536)             False
+│    │    └─BatchNorm2d (bn1)            [32, 128, 28, 28]    [32, 128, 28, 28]    (256)                False
+│    │    └─ReLU (relu)                  [32, 128, 28, 28]    [32, 128, 28, 28]    --                   --
+│    │    └─Conv2d (conv2)               [32, 128, 28, 28]    [32, 128, 28, 28]    (147,456)            False
+│    │    └─BatchNorm2d (bn2)            [32, 128, 28, 28]    [32, 128, 28, 28]    (256)                False
+│    │    └─ReLU (relu)                  [32, 128, 28, 28]    [32, 128, 28, 28]    --                   --
+│    │    └─Conv2d (conv3)               [32, 128, 28, 28]    [32, 512, 28, 28]    (65,536)             False
+│    │    └─BatchNorm2d (bn3)            [32, 512, 28, 28]    [32, 512, 28, 28]    (1,024)              False
+│    │    └─ReLU (relu)                  [32, 512, 28, 28]    [32, 512, 28, 28]    --                   --
+├─Sequential (layer3)                    [32, 512, 28, 28]    [32, 1024, 14, 14]   --                   True
+│    └─Bottleneck (0)                    [32, 512, 28, 28]    [32, 1024, 14, 14]   --                   True
+│    │    └─Conv2d (conv1)               [32, 512, 28, 28]    [32, 256, 28, 28]    131,072              True
+│    │    └─BatchNorm2d (bn1)            [32, 256, 28, 28]    [32, 256, 28, 28]    512                  True
+│    │    └─ReLU (relu)                  [32, 256, 28, 28]    [32, 256, 28, 28]    --                   --
+│    │    └─Conv2d (conv2)               [32, 256, 28, 28]    [32, 256, 14, 14]    589,824              True
+│    │    └─BatchNorm2d (bn2)            [32, 256, 14, 14]    [32, 256, 14, 14]    512                  True
+│    │    └─ReLU (relu)                  [32, 256, 14, 14]    [32, 256, 14, 14]    --                   --
+│    │    └─Conv2d (conv3)               [32, 256, 14, 14]    [32, 1024, 14, 14]   262,144              True
+│    │    └─BatchNorm2d (bn3)            [32, 1024, 14, 14]   [32, 1024, 14, 14]   2,048                True
+│    │    └─Sequential (downsample)      [32, 512, 28, 28]    [32, 1024, 14, 14]   526,336              True
+│    │    └─ReLU (relu)                  [32, 1024, 14, 14]   [32, 1024, 14, 14]   --                   --
+│    └─Bottleneck (1)                    [32, 1024, 14, 14]   [32, 1024, 14, 14]   --                   True
+│    │    └─Conv2d (conv1)               [32, 1024, 14, 14]   [32, 256, 14, 14]    262,144              True
+│    │    └─BatchNorm2d (bn1)            [32, 256, 14, 14]    [32, 256, 14, 14]    512                  True
+│    │    └─ReLU (relu)                  [32, 256, 14, 14]    [32, 256, 14, 14]    --                   --
+│    │    └─Conv2d (conv2)               [32, 256, 14, 14]    [32, 256, 14, 14]    589,824              True
+│    │    └─BatchNorm2d (bn2)            [32, 256, 14, 14]    [32, 256, 14, 14]    512                  True
+│    │    └─ReLU (relu)                  [32, 256, 14, 14]    [32, 256, 14, 14]    --                   --
+│    │    └─Conv2d (conv3)               [32, 256, 14, 14]    [32, 1024, 14, 14]   262,144              True
+│    │    └─BatchNorm2d (bn3)            [32, 1024, 14, 14]   [32, 1024, 14, 14]   2,048                True
+│    │    └─ReLU (relu)                  [32, 1024, 14, 14]   [32, 1024, 14, 14]   --                   --
+│    └─Bottleneck (2)                    [32, 1024, 14, 14]   [32, 1024, 14, 14]   --                   True
+│    │    └─Conv2d (conv1)               [32, 1024, 14, 14]   [32, 256, 14, 14]    262,144              True
+│    │    └─BatchNorm2d (bn1)            [32, 256, 14, 14]    [32, 256, 14, 14]    512                  True
+│    │    └─ReLU (relu)                  [32, 256, 14, 14]    [32, 256, 14, 14]    --                   --
+│    │    └─Conv2d (conv2)               [32, 256, 14, 14]    [32, 256, 14, 14]    589,824              True
+│    │    └─BatchNorm2d (bn2)            [32, 256, 14, 14]    [32, 256, 14, 14]    512                  True
+│    │    └─ReLU (relu)                  [32, 256, 14, 14]    [32, 256, 14, 14]    --                   --
+│    │    └─Conv2d (conv3)               [32, 256, 14, 14]    [32, 1024, 14, 14]   262,144              True
+│    │    └─BatchNorm2d (bn3)            [32, 1024, 14, 14]   [32, 1024, 14, 14]   2,048                True
+│    │    └─ReLU (relu)                  [32, 1024, 14, 14]   [32, 1024, 14, 14]   --                   --
+│    └─Bottleneck (3)                    [32, 1024, 14, 14]   [32, 1024, 14, 14]   --                   True
+│    │    └─Conv2d (conv1)               [32, 1024, 14, 14]   [32, 256, 14, 14]    262,144              True
+│    │    └─BatchNorm2d (bn1)            [32, 256, 14, 14]    [32, 256, 14, 14]    512                  True
+│    │    └─ReLU (relu)                  [32, 256, 14, 14]    [32, 256, 14, 14]    --                   --
+│    │    └─Conv2d (conv2)               [32, 256, 14, 14]    [32, 256, 14, 14]    589,824              True
+│    │    └─BatchNorm2d (bn2)            [32, 256, 14, 14]    [32, 256, 14, 14]    512                  True
+│    │    └─ReLU (relu)                  [32, 256, 14, 14]    [32, 256, 14, 14]    --                   --
+│    │    └─Conv2d (conv3)               [32, 256, 14, 14]    [32, 1024, 14, 14]   262,144              True
+│    │    └─BatchNorm2d (bn3)            [32, 1024, 14, 14]   [32, 1024, 14, 14]   2,048                True
+│    │    └─ReLU (relu)                  [32, 1024, 14, 14]   [32, 1024, 14, 14]   --                   --
+│    └─Bottleneck (4)                    [32, 1024, 14, 14]   [32, 1024, 14, 14]   --                   True
+│    │    └─Conv2d (conv1)               [32, 1024, 14, 14]   [32, 256, 14, 14]    262,144              True
+│    │    └─BatchNorm2d (bn1)            [32, 256, 14, 14]    [32, 256, 14, 14]    512                  True
+│    │    └─ReLU (relu)                  [32, 256, 14, 14]    [32, 256, 14, 14]    --                   --
+│    │    └─Conv2d (conv2)               [32, 256, 14, 14]    [32, 256, 14, 14]    589,824              True
+│    │    └─BatchNorm2d (bn2)            [32, 256, 14, 14]    [32, 256, 14, 14]    512                  True
+│    │    └─ReLU (relu)                  [32, 256, 14, 14]    [32, 256, 14, 14]    --                   --
+│    │    └─Conv2d (conv3)               [32, 256, 14, 14]    [32, 1024, 14, 14]   262,144              True
+│    │    └─BatchNorm2d (bn3)            [32, 1024, 14, 14]   [32, 1024, 14, 14]   2,048                True
+│    │    └─ReLU (relu)                  [32, 1024, 14, 14]   [32, 1024, 14, 14]   --                   --
+│    └─Bottleneck (5)                    [32, 1024, 14, 14]   [32, 1024, 14, 14]   --                   True
+│    │    └─Conv2d (conv1)               [32, 1024, 14, 14]   [32, 256, 14, 14]    262,144              True
+│    │    └─BatchNorm2d (bn1)            [32, 256, 14, 14]    [32, 256, 14, 14]    512                  True
+│    │    └─ReLU (relu)                  [32, 256, 14, 14]    [32, 256, 14, 14]    --                   --
+│    │    └─Conv2d (conv2)               [32, 256, 14, 14]    [32, 256, 14, 14]    589,824              True
+│    │    └─BatchNorm2d (bn2)            [32, 256, 14, 14]    [32, 256, 14, 14]    512                  True
+│    │    └─ReLU (relu)                  [32, 256, 14, 14]    [32, 256, 14, 14]    --                   --
+│    │    └─Conv2d (conv3)               [32, 256, 14, 14]    [32, 1024, 14, 14]   262,144              True
+│    │    └─BatchNorm2d (bn3)            [32, 1024, 14, 14]   [32, 1024, 14, 14]   2,048                True
+│    │    └─ReLU (relu)                  [32, 1024, 14, 14]   [32, 1024, 14, 14]   --                   --
+├─Sequential (layer4)                    [32, 1024, 14, 14]   [32, 2048, 7, 7]     --                   True
+│    └─Bottleneck (0)                    [32, 1024, 14, 14]   [32, 2048, 7, 7]     --                   True
+│    │    └─Conv2d (conv1)               [32, 1024, 14, 14]   [32, 512, 14, 14]    524,288              True
+│    │    └─BatchNorm2d (bn1)            [32, 512, 14, 14]    [32, 512, 14, 14]    1,024                True
+│    │    └─ReLU (relu)                  [32, 512, 14, 14]    [32, 512, 14, 14]    --                   --
+│    │    └─Conv2d (conv2)               [32, 512, 14, 14]    [32, 512, 7, 7]      2,359,296            True
+│    │    └─BatchNorm2d (bn2)            [32, 512, 7, 7]      [32, 512, 7, 7]      1,024                True
+│    │    └─ReLU (relu)                  [32, 512, 7, 7]      [32, 512, 7, 7]      --                   --
+│    │    └─Conv2d (conv3)               [32, 512, 7, 7]      [32, 2048, 7, 7]     1,048,576            True
+│    │    └─BatchNorm2d (bn3)            [32, 2048, 7, 7]     [32, 2048, 7, 7]     4,096                True
+│    │    └─Sequential (downsample)      [32, 1024, 14, 14]   [32, 2048, 7, 7]     2,101,248            True
+│    │    └─ReLU (relu)                  [32, 2048, 7, 7]     [32, 2048, 7, 7]     --                   --
+│    └─Bottleneck (1)                    [32, 2048, 7, 7]     [32, 2048, 7, 7]     --                   True
+│    │    └─Conv2d (conv1)               [32, 2048, 7, 7]     [32, 512, 7, 7]      1,048,576            True
+│    │    └─BatchNorm2d (bn1)            [32, 512, 7, 7]      [32, 512, 7, 7]      1,024                True
+│    │    └─ReLU (relu)                  [32, 512, 7, 7]      [32, 512, 7, 7]      --                   --
+│    │    └─Conv2d (conv2)               [32, 512, 7, 7]      [32, 512, 7, 7]      2,359,296            True
+│    │    └─BatchNorm2d (bn2)            [32, 512, 7, 7]      [32, 512, 7, 7]      1,024                True
+│    │    └─ReLU (relu)                  [32, 512, 7, 7]      [32, 512, 7, 7]      --                   --
+│    │    └─Conv2d (conv3)               [32, 512, 7, 7]      [32, 2048, 7, 7]     1,048,576            True
+│    │    └─BatchNorm2d (bn3)            [32, 2048, 7, 7]     [32, 2048, 7, 7]     4,096                True
+│    │    └─ReLU (relu)                  [32, 2048, 7, 7]     [32, 2048, 7, 7]     --                   --
+│    └─Bottleneck (2)                    [32, 2048, 7, 7]     [32, 2048, 7, 7]     --                   True
+│    │    └─Conv2d (conv1)               [32, 2048, 7, 7]     [32, 512, 7, 7]      1,048,576            True
+│    │    └─BatchNorm2d (bn1)            [32, 512, 7, 7]      [32, 512, 7, 7]      1,024                True
+│    │    └─ReLU (relu)                  [32, 512, 7, 7]      [32, 512, 7, 7]      --                   --
+│    │    └─Conv2d (conv2)               [32, 512, 7, 7]      [32, 512, 7, 7]      2,359,296            True
+│    │    └─BatchNorm2d (bn2)            [32, 512, 7, 7]      [32, 512, 7, 7]      1,024                True
+│    │    └─ReLU (relu)                  [32, 512, 7, 7]      [32, 512, 7, 7]      --                   --
+│    │    └─Conv2d (conv3)               [32, 512, 7, 7]      [32, 2048, 7, 7]     1,048,576            True
+│    │    └─BatchNorm2d (bn3)            [32, 2048, 7, 7]     [32, 2048, 7, 7]     4,096                True
+│    │    └─ReLU (relu)                  [32, 2048, 7, 7]     [32, 2048, 7, 7]     --                   --
+├─AdaptiveAvgPool2d (avgpool)            [32, 2048, 7, 7]     [32, 2048, 1, 1]     --                   --
+├─Sequential (fc)                        [32, 2048]           [32, 8]              --                   True
+│    └─Linear (0)                        [32, 2048]           [32, 8]              16,392               True
+========================================================================================================================
+Total params: 23,524,424
+Trainable params: 22,079,496
+Non-trainable params: 1,444,928
+Total mult-adds (Units.GIGABYTES): 130.79
+========================================================================================================================
+Input size (MB): 19.27
+Forward/backward pass size (MB): 5690.36
+Params size (MB): 94.10
+Estimated Total Size (MB): 5803.73
+========================================================================================================================
+Epoch [1/40] - Train Loss: 1.1381, Train Accuracy: 0.6241, Val Loss: 0.5666, Val Accuracy: 0.8300
+Test Loss: 0.5520, Test Accuracy: 0.8400
+Epoch [2/40] - Train Loss: 0.6739, Train Accuracy: 0.7722, Val Loss: 0.4505, Val Accuracy: 0.8700
+Test Loss: 0.4183, Test Accuracy: 0.8725
+Epoch [3/40] - Train Loss: 0.5774, Train Accuracy: 0.8055, Val Loss: 0.5125, Val Accuracy: 0.8719
+Test Loss: 0.4342, Test Accuracy: 0.8875
+Epoch [4/40] - Train Loss: 0.5070, Train Accuracy: 0.8297, Val Loss: 0.4945, Val Accuracy: 0.8819
+Test Loss: 0.4368, Test Accuracy: 0.8875
+Epoch [5/40] - Train Loss: 0.4816, Train Accuracy: 0.8380, Val Loss: 0.4331, Val Accuracy: 0.8912
+Test Loss: 0.3425, Test Accuracy: 0.9000
+Epoch [6/40] - Train Loss: 0.4176, Train Accuracy: 0.8556, Val Loss: 0.4685, Val Accuracy: 0.8944
+Test Loss: 0.3644, Test Accuracy: 0.8938
+Epoch [7/40] - Train Loss: 0.3938, Train Accuracy: 0.8620, Val Loss: 0.3706, Val Accuracy: 0.9113
+Test Loss: 0.3099, Test Accuracy: 0.9113
+Epoch [8/40] - Train Loss: 0.3777, Train Accuracy: 0.8722, Val Loss: 0.4855, Val Accuracy: 0.9006
+Test Loss: 0.3979, Test Accuracy: 0.8975
+Epoch [9/40] - Train Loss: 0.3553, Train Accuracy: 0.8806, Val Loss: 0.2968, Val Accuracy: 0.9106
+Test Loss: 0.3212, Test Accuracy: 0.8950
+Epoch [10/40] - Train Loss: 0.3266, Train Accuracy: 0.8877, Val Loss: 0.4515, Val Accuracy: 0.9019
+Test Loss: 0.3746, Test Accuracy: 0.8888
+Epoch [11/40] - Train Loss: 0.3025, Train Accuracy: 0.8967, Val Loss: 0.5543, Val Accuracy: 0.9038
+Test Loss: 0.4197, Test Accuracy: 0.9000
+Epoch [12/40] - Train Loss: 0.2855, Train Accuracy: 0.9017, Val Loss: 0.5011, Val Accuracy: 0.9081
+Test Loss: 0.3825, Test Accuracy: 0.9012
+Epoch [13/40] - Train Loss: 0.2759, Train Accuracy: 0.9084, Val Loss: 0.8508, Val Accuracy: 0.8969
+Test Loss: 0.5147, Test Accuracy: 0.9050
+Epoch [14/40] - Train Loss: 0.2570, Train Accuracy: 0.9139, Val Loss: 0.3113, Val Accuracy: 0.9169
+Test Loss: 0.2860, Test Accuracy: 0.9263
+Epoch [15/40] - Train Loss: 0.2557, Train Accuracy: 0.9123, Val Loss: 0.3934, Val Accuracy: 0.9194
+Test Loss: 0.3344, Test Accuracy: 0.9025
+Epoch [16/40] - Train Loss: 0.2433, Train Accuracy: 0.9180, Val Loss: 0.6024, Val Accuracy: 0.9094
+Test Loss: 0.4453, Test Accuracy: 0.8912
+Epoch [17/40] - Train Loss: 0.2374, Train Accuracy: 0.9194, Val Loss: 0.4203, Val Accuracy: 0.9206
+Test Loss: 0.3975, Test Accuracy: 0.8975
+Epoch [18/40] - Train Loss: 0.2152, Train Accuracy: 0.9264, Val Loss: 0.5822, Val Accuracy: 0.9144
+Test Loss: 0.4370, Test Accuracy: 0.9038
+Epoch [19/40] - Train Loss: 0.2142, Train Accuracy: 0.9259, Val Loss: 0.7649, Val Accuracy: 0.8988
+Test Loss: 0.6233, Test Accuracy: 0.8862
+Epoch [20/40] - Train Loss: 0.2072, Train Accuracy: 0.9314, Val Loss: 0.7387, Val Accuracy: 0.9100
+Test Loss: 0.7821, Test Accuracy: 0.8862
+Epoch [21/40] - Train Loss: 0.1941, Train Accuracy: 0.9366, Val Loss: 0.5998, Val Accuracy: 0.9094
+Test Loss: 0.5373, Test Accuracy: 0.8975
+Epoch [22/40] - Train Loss: 0.2008, Train Accuracy: 0.9313, Val Loss: 0.3868, Val Accuracy: 0.9100
+Test Loss: 0.3889, Test Accuracy: 0.9150
+Epoch [23/40] - Train Loss: 0.1939, Train Accuracy: 0.9366, Val Loss: 0.5111, Val Accuracy: 0.9106
+Test Loss: 0.4891, Test Accuracy: 0.8888
+Epoch [24/40] - Train Loss: 0.1977, Train Accuracy: 0.9323, Val Loss: 0.6380, Val Accuracy: 0.9094
+Test Loss: 0.5159, Test Accuracy: 0.9025
+Epoch [25/40] - Train Loss: 0.1700, Train Accuracy: 0.9433, Val Loss: 0.3245, Val Accuracy: 0.9306
+Test Loss: 0.3784, Test Accuracy: 0.9125
+Epoch [26/40] - Train Loss: 0.1765, Train Accuracy: 0.9414, Val Loss: 0.3716, Val Accuracy: 0.9087
+Test Loss: 0.4058, Test Accuracy: 0.9062
+Epoch [27/40] - Train Loss: 0.1692, Train Accuracy: 0.9430, Val Loss: 0.3430, Val Accuracy: 0.9175
+Test Loss: 0.3436, Test Accuracy: 0.9200
+Epoch [28/40] - Train Loss: 0.1734, Train Accuracy: 0.9411, Val Loss: 0.4908, Val Accuracy: 0.9206
+Test Loss: 0.5149, Test Accuracy: 0.9087
+Epoch [29/40] - Train Loss: 0.1615, Train Accuracy: 0.9437, Val Loss: 0.6363, Val Accuracy: 0.9081
+Test Loss: 0.6680, Test Accuracy: 0.8938
+Epoch [30/40] - Train Loss: 0.1657, Train Accuracy: 0.9452, Val Loss: 0.9432, Val Accuracy: 0.8994
+Test Loss: 0.8443, Test Accuracy: 0.9012
+Epoch [31/40] - Train Loss: 0.1609, Train Accuracy: 0.9467, Val Loss: 0.3544, Val Accuracy: 0.9244
+Test Loss: 0.4680, Test Accuracy: 0.9062
+Epoch [32/40] - Train Loss: 0.1540, Train Accuracy: 0.9473, Val Loss: 0.7571, Val Accuracy: 0.9163
+Test Loss: 0.7902, Test Accuracy: 0.9050
+Epoch [33/40] - Train Loss: 0.1413, Train Accuracy: 0.9505, Val Loss: 0.7864, Val Accuracy: 0.9200
+Test Loss: 1.0670, Test Accuracy: 0.8988
+Epoch [34/40] - Train Loss: 0.1341, Train Accuracy: 0.9545, Val Loss: 0.5370, Val Accuracy: 0.9175
+Test Loss: 0.5995, Test Accuracy: 0.9038
+Epoch [35/40] - Train Loss: 0.1464, Train Accuracy: 0.9497, Val Loss: 1.0413, Val Accuracy: 0.9175
+Test Loss: 1.2496, Test Accuracy: 0.9100
+Epoch [36/40] - Train Loss: 0.1405, Train Accuracy: 0.9509, Val Loss: 0.6631, Val Accuracy: 0.9213
+Test Loss: 0.7860, Test Accuracy: 0.9062
+Epoch [37/40] - Train Loss: 0.1350, Train Accuracy: 0.9527, Val Loss: 0.5147, Val Accuracy: 0.9206
+Test Loss: 0.5441, Test Accuracy: 0.9200
+Epoch [38/40] - Train Loss: 0.1354, Train Accuracy: 0.9547, Val Loss: 0.7719, Val Accuracy: 0.9194
+Test Loss: 0.9734, Test Accuracy: 0.9038
+Epoch [39/40] - Train Loss: 0.1351, Train Accuracy: 0.9541, Val Loss: 0.8858, Val Accuracy: 0.9075
+Test Loss: 0.8725, Test Accuracy: 0.9012
+Epoch [40/40] - Train Loss: 0.1486, Train Accuracy: 0.9509, Val Loss: 0.8455, Val Accuracy: 0.9244
+Test Loss: 0.9351, Test Accuracy: 0.9225
+Start time: 2023-08-11 00:57:08.186749
+End time: 2023-08-11 01:09:27.129017
+Total time: 0:12:18.942268

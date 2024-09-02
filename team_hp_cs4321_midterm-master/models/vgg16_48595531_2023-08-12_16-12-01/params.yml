@@ -1,0 +1,16 @@
+base_learning_rate: 0.001
+batch_size: 8
+callback_list: checkpoint, csv_log
+fixed: true
+gpus: 1
+model_dir: ../models/vgg16_48595531_2023-08-12_16-12-01/
+model_type: vgg16
+nodes: 1
+num_classes: 8
+num_epochs: 40
+optimizer: sgd
+test_dir: /data/cs4321/HW1/test
+train_dir: /data/cs4321/HW1/train
+unfreeze: 4
+val_dir: /data/cs4321/HW1/validation
+world_size: 1

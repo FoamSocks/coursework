@@ -1,0 +1,213 @@
+Thu Aug 10 22:12:59 2023       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 530.30.02              Driver Version: 530.30.02    CUDA Version: 12.1     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                  Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf            Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA RTX A6000                On | 00000000:83:00.0 Off |                  Off |
+| 30%   26C    P8               20W / 300W|      1MiB / 49140MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   1  NVIDIA RTX A6000                On | 00000000:84:00.0 Off |                  Off |
+| 30%   25C    P8               21W / 300W|      1MiB / 49140MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   2  NVIDIA RTX A6000                On | 00000000:C3:00.0 Off |                  Off |
+| 30%   25C    P8               24W / 300W|      1MiB / 49140MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   3  NVIDIA RTX A6000                On | 00000000:C4:00.0 Off |                  Off |
+| 30%   26C    P8               27W / 300W|      1MiB / 49140MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+PyTorch Version: 2.0.1+cu117
+GPUs available: 4
+CPUs available: 128
+Using CUDA
+Namespace(model_dir='/home/madina.petashvili/team_hp_cs4321_midterm/models/vgg16_2023-08-10_22-12-59/', test_dir='/data/cs4321/HW1/test', train_dir='/data/cs4321/HW1/train', val_dir='/data/cs4321/HW1/validation', model_type='vgg16', regression=False, input_shape=(28, 28), continue_training=False, checkpoint_path=None, predict=False, num_classes=8, num_epochs=40, batch_size=32, unfreeze=2, optimizer='adam', callback_list='checkpoint, csv_log', activation_fn='relu', base_learning_rate=0.001, loss_type='categorical_crossentropy', eval_metrics='accuracy', mgpu_run=False, use_multiprocessing=True, workers=6, nodes=1, gpus=1, world_size=1)
+model_dir : /home/madina.petashvili/team_hp_cs4321_midterm/models/vgg16_2023-08-10_22-12-59/
+test_dir : /data/cs4321/HW1/test
+train_dir : /data/cs4321/HW1/train
+val_dir : /data/cs4321/HW1/validation
+model_type : vgg16
+regression : False
+input_shape : (28, 28)
+continue_training : False
+checkpoint_path : None
+predict : False
+num_classes : 8
+num_epochs : 40
+batch_size : 32
+optimizer : adam
+callback_list : checkpoint, csv_log
+activation_fn : relu
+base_learning_rate : 0.001
+loss_type : categorical_crossentropy
+eval_metrics : accuracy
+mgpu_run : False
+use_multiprocessing : True
+workers : 6
+nodes : 1
+gpus : 1
+world_size : 1
+Loaded 6400 images under train
+Loaded 1600 images under validation
+Loaded 800 images under test
+Created all datasets
+Classes: 
+['CoastalCliffs', 'CoastalRocky', 'CoastalWaterWay', 'Dunes', 'ManMadeStructures', 'SaltMarshes', 'SandyBeaches', 'TidalFlats']
+Rank: 0
+/home/madina.petashvili/.conda/envs/torch/lib/python3.11/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/madina.petashvili/.conda/envs/torch/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+1000
+========================================================================================================================
+Layer (type (var_name))                  Input Shape          Output Shape         Param #              Trainable
+========================================================================================================================
+VGG (VGG)                                [32, 3, 224, 224]    [32, 8]              --                   Partial
+├─Sequential (features)                  [32, 3, 224, 224]    [32, 512, 7, 7]      --                   Partial
+│    └─Conv2d (0)                        [32, 3, 224, 224]    [32, 64, 224, 224]   (1,792)              False
+│    └─ReLU (1)                          [32, 64, 224, 224]   [32, 64, 224, 224]   --                   --
+│    └─Conv2d (2)                        [32, 64, 224, 224]   [32, 64, 224, 224]   (36,928)             False
+│    └─ReLU (3)                          [32, 64, 224, 224]   [32, 64, 224, 224]   --                   --
+│    └─MaxPool2d (4)                     [32, 64, 224, 224]   [32, 64, 112, 112]   --                   --
+│    └─Conv2d (5)                        [32, 64, 112, 112]   [32, 128, 112, 112]  (73,856)             False
+│    └─ReLU (6)                          [32, 128, 112, 112]  [32, 128, 112, 112]  --                   --
+│    └─Conv2d (7)                        [32, 128, 112, 112]  [32, 128, 112, 112]  (147,584)            False
+│    └─ReLU (8)                          [32, 128, 112, 112]  [32, 128, 112, 112]  --                   --
+│    └─MaxPool2d (9)                     [32, 128, 112, 112]  [32, 128, 56, 56]    --                   --
+│    └─Conv2d (10)                       [32, 128, 56, 56]    [32, 256, 56, 56]    295,168              True
+│    └─ReLU (11)                         [32, 256, 56, 56]    [32, 256, 56, 56]    --                   --
+│    └─Conv2d (12)                       [32, 256, 56, 56]    [32, 256, 56, 56]    590,080              True
+│    └─ReLU (13)                         [32, 256, 56, 56]    [32, 256, 56, 56]    --                   --
+│    └─Conv2d (14)                       [32, 256, 56, 56]    [32, 256, 56, 56]    590,080              True
+│    └─ReLU (15)                         [32, 256, 56, 56]    [32, 256, 56, 56]    --                   --
+│    └─MaxPool2d (16)                    [32, 256, 56, 56]    [32, 256, 28, 28]    --                   --
+│    └─Conv2d (17)                       [32, 256, 28, 28]    [32, 512, 28, 28]    1,180,160            True
+│    └─ReLU (18)                         [32, 512, 28, 28]    [32, 512, 28, 28]    --                   --
+│    └─Conv2d (19)                       [32, 512, 28, 28]    [32, 512, 28, 28]    2,359,808            True
+│    └─ReLU (20)                         [32, 512, 28, 28]    [32, 512, 28, 28]    --                   --
+│    └─Conv2d (21)                       [32, 512, 28, 28]    [32, 512, 28, 28]    2,359,808            True
+│    └─ReLU (22)                         [32, 512, 28, 28]    [32, 512, 28, 28]    --                   --
+│    └─MaxPool2d (23)                    [32, 512, 28, 28]    [32, 512, 14, 14]    --                   --
+│    └─Conv2d (24)                       [32, 512, 14, 14]    [32, 512, 14, 14]    2,359,808            True
+│    └─ReLU (25)                         [32, 512, 14, 14]    [32, 512, 14, 14]    --                   --
+│    └─Conv2d (26)                       [32, 512, 14, 14]    [32, 512, 14, 14]    2,359,808            True
+│    └─ReLU (27)                         [32, 512, 14, 14]    [32, 512, 14, 14]    --                   --
+│    └─Conv2d (28)                       [32, 512, 14, 14]    [32, 512, 14, 14]    2,359,808            True
+│    └─ReLU (29)                         [32, 512, 14, 14]    [32, 512, 14, 14]    --                   --
+│    └─MaxPool2d (30)                    [32, 512, 14, 14]    [32, 512, 7, 7]      --                   --
+├─AdaptiveAvgPool2d (avgpool)            [32, 512, 7, 7]      [32, 512, 7, 7]      --                   --
+├─Sequential (classifier)                [32, 25088]          [32, 8]              --                   True
+│    └─Linear (0)                        [32, 25088]          [32, 4096]           102,764,544          True
+│    └─ReLU (1)                          [32, 4096]           [32, 4096]           --                   --
+│    └─Dropout (2)                       [32, 4096]           [32, 4096]           --                   --
+│    └─Linear (3)                        [32, 4096]           [32, 4096]           16,781,312           True
+│    └─ReLU (4)                          [32, 4096]           [32, 4096]           --                   --
+│    └─Dropout (5)                       [32, 4096]           [32, 4096]           --                   --
+│    └─Linear (6)                        [32, 4096]           [32, 8]              32,776               True
+========================================================================================================================
+Total params: 134,293,320
+Trainable params: 134,033,160
+Non-trainable params: 260,160
+Total mult-adds (Units.GIGABYTES): 495.35
+========================================================================================================================
+Input size (MB): 19.27
+Forward/backward pass size (MB): 3470.26
+Params size (MB): 537.17
+Estimated Total Size (MB): 4026.71
+========================================================================================================================
+Epoch [1/40] - Train Loss: 1.0027, Train Accuracy: 0.6584, Val Loss: 0.5592, Val Accuracy: 0.8131
+Test Loss: 0.5764, Test Accuracy: 0.8025
+Epoch [2/40] - Train Loss: 0.7098, Train Accuracy: 0.7647, Val Loss: 0.4417, Val Accuracy: 0.8606
+Test Loss: 0.4524, Test Accuracy: 0.8662
+Epoch [3/40] - Train Loss: 0.5799, Train Accuracy: 0.8036, Val Loss: 0.3517, Val Accuracy: 0.8719
+Test Loss: 0.3871, Test Accuracy: 0.8838
+Epoch [4/40] - Train Loss: 0.5299, Train Accuracy: 0.8227, Val Loss: 0.4425, Val Accuracy: 0.8531
+Test Loss: 0.4726, Test Accuracy: 0.8512
+Epoch [5/40] - Train Loss: 0.4966, Train Accuracy: 0.8269, Val Loss: 0.3079, Val Accuracy: 0.8956
+Test Loss: 0.3494, Test Accuracy: 0.8875
+Epoch [6/40] - Train Loss: 0.4560, Train Accuracy: 0.8481, Val Loss: 0.3502, Val Accuracy: 0.8731
+Test Loss: 0.3406, Test Accuracy: 0.8912
+Epoch [7/40] - Train Loss: 0.4182, Train Accuracy: 0.8542, Val Loss: 0.3124, Val Accuracy: 0.8938
+Test Loss: 0.3074, Test Accuracy: 0.9062
+Epoch [8/40] - Train Loss: 0.4147, Train Accuracy: 0.8614, Val Loss: 0.3029, Val Accuracy: 0.8975
+Test Loss: 0.3041, Test Accuracy: 0.9025
+Epoch [9/40] - Train Loss: 0.3677, Train Accuracy: 0.8708, Val Loss: 0.2814, Val Accuracy: 0.9012
+Test Loss: 0.3224, Test Accuracy: 0.9087
+Epoch [10/40] - Train Loss: 0.3623, Train Accuracy: 0.8747, Val Loss: 0.2690, Val Accuracy: 0.9150
+Test Loss: 0.2962, Test Accuracy: 0.9087
+Epoch [11/40] - Train Loss: 0.3506, Train Accuracy: 0.8780, Val Loss: 0.3193, Val Accuracy: 0.8862
+Test Loss: 0.3049, Test Accuracy: 0.9012
+Epoch [12/40] - Train Loss: 0.3357, Train Accuracy: 0.8862, Val Loss: 0.2790, Val Accuracy: 0.9119
+Test Loss: 0.2825, Test Accuracy: 0.9125
+Epoch [13/40] - Train Loss: 0.3194, Train Accuracy: 0.8939, Val Loss: 0.2905, Val Accuracy: 0.9038
+Test Loss: 0.2924, Test Accuracy: 0.9125
+Epoch [14/40] - Train Loss: 0.2858, Train Accuracy: 0.9011, Val Loss: 0.2447, Val Accuracy: 0.9263
+Test Loss: 0.2559, Test Accuracy: 0.9213
+Epoch [15/40] - Train Loss: 0.2939, Train Accuracy: 0.8964, Val Loss: 0.2789, Val Accuracy: 0.9062
+Test Loss: 0.2791, Test Accuracy: 0.9150
+Epoch [16/40] - Train Loss: 0.2735, Train Accuracy: 0.9094, Val Loss: 0.4422, Val Accuracy: 0.8831
+Test Loss: 0.4051, Test Accuracy: 0.9062
+Epoch [17/40] - Train Loss: 0.2733, Train Accuracy: 0.9048, Val Loss: 0.3166, Val Accuracy: 0.9000
+Test Loss: 0.3408, Test Accuracy: 0.9012
+Epoch [18/40] - Train Loss: 0.2618, Train Accuracy: 0.9086, Val Loss: 0.2706, Val Accuracy: 0.9169
+Test Loss: 0.3049, Test Accuracy: 0.9175
+Epoch [19/40] - Train Loss: 0.2535, Train Accuracy: 0.9114, Val Loss: 0.3178, Val Accuracy: 0.9106
+Test Loss: 0.3148, Test Accuracy: 0.9062
+Epoch [20/40] - Train Loss: 0.2494, Train Accuracy: 0.9134, Val Loss: 0.3035, Val Accuracy: 0.9119
+Test Loss: 0.2899, Test Accuracy: 0.9187
+Epoch [21/40] - Train Loss: 0.2387, Train Accuracy: 0.9163, Val Loss: 0.3337, Val Accuracy: 0.9056
+Test Loss: 0.3545, Test Accuracy: 0.8925
+Epoch [22/40] - Train Loss: 0.2479, Train Accuracy: 0.9147, Val Loss: 0.2801, Val Accuracy: 0.9119
+Test Loss: 0.3105, Test Accuracy: 0.9137
+Epoch [23/40] - Train Loss: 0.2325, Train Accuracy: 0.9192, Val Loss: 0.2867, Val Accuracy: 0.9213
+Test Loss: 0.2899, Test Accuracy: 0.9187
+Epoch [24/40] - Train Loss: 0.2286, Train Accuracy: 0.9250, Val Loss: 0.3324, Val Accuracy: 0.9106
+Test Loss: 0.3872, Test Accuracy: 0.9012
+Epoch [25/40] - Train Loss: 0.2209, Train Accuracy: 0.9228, Val Loss: 0.3033, Val Accuracy: 0.9137
+Test Loss: 0.2790, Test Accuracy: 0.9125
+Epoch [26/40] - Train Loss: 0.2229, Train Accuracy: 0.9239, Val Loss: 0.2476, Val Accuracy: 0.9250
+Test Loss: 0.3225, Test Accuracy: 0.9125
+Epoch [27/40] - Train Loss: 0.2148, Train Accuracy: 0.9292, Val Loss: 0.2965, Val Accuracy: 0.9187
+Test Loss: 0.3476, Test Accuracy: 0.9225
+Epoch [28/40] - Train Loss: 0.2111, Train Accuracy: 0.9295, Val Loss: 0.2693, Val Accuracy: 0.9237
+Test Loss: 0.2904, Test Accuracy: 0.9287
+Epoch [29/40] - Train Loss: 0.1804, Train Accuracy: 0.9384, Val Loss: 0.2663, Val Accuracy: 0.9231
+Test Loss: 0.3771, Test Accuracy: 0.9237
+Epoch [30/40] - Train Loss: 0.2113, Train Accuracy: 0.9278, Val Loss: 0.2741, Val Accuracy: 0.9225
+Test Loss: 0.3032, Test Accuracy: 0.9287
+Epoch [31/40] - Train Loss: 0.2049, Train Accuracy: 0.9305, Val Loss: 0.2704, Val Accuracy: 0.9206
+Test Loss: 0.3371, Test Accuracy: 0.9137
+Epoch [32/40] - Train Loss: 0.1850, Train Accuracy: 0.9370, Val Loss: 0.4583, Val Accuracy: 0.8938
+Test Loss: 0.4541, Test Accuracy: 0.8988
+Epoch [33/40] - Train Loss: 0.1822, Train Accuracy: 0.9398, Val Loss: 0.3319, Val Accuracy: 0.9144
+Test Loss: 0.3916, Test Accuracy: 0.8838
+Epoch [34/40] - Train Loss: 0.1744, Train Accuracy: 0.9397, Val Loss: 0.3435, Val Accuracy: 0.9156
+Test Loss: 0.4233, Test Accuracy: 0.9062
+Epoch [35/40] - Train Loss: 0.1758, Train Accuracy: 0.9392, Val Loss: 0.2981, Val Accuracy: 0.9163
+Test Loss: 0.3485, Test Accuracy: 0.9163
+Epoch [36/40] - Train Loss: 0.1760, Train Accuracy: 0.9403, Val Loss: 0.3562, Val Accuracy: 0.9125
+Test Loss: 0.3796, Test Accuracy: 0.9200
+Epoch [37/40] - Train Loss: 0.1665, Train Accuracy: 0.9422, Val Loss: 0.3732, Val Accuracy: 0.9181
+Test Loss: 0.4354, Test Accuracy: 0.9113
+Epoch [38/40] - Train Loss: 0.1831, Train Accuracy: 0.9395, Val Loss: 0.3353, Val Accuracy: 0.9156
+Test Loss: 0.4025, Test Accuracy: 0.9163
+Epoch [39/40] - Train Loss: 0.1711, Train Accuracy: 0.9391, Val Loss: 0.3102, Val Accuracy: 0.9187
+Test Loss: 0.3523, Test Accuracy: 0.9263
+Epoch [40/40] - Train Loss: 0.1640, Train Accuracy: 0.9433, Val Loss: 0.2690, Val Accuracy: 0.9275
+Test Loss: 0.3845, Test Accuracy: 0.9263
+Start time: 2023-08-10 22:13:01.464884
+End time: 2023-08-10 22:32:58.612360
+Total time: 0:19:57.147476
